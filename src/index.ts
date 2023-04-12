@@ -53,3 +53,34 @@ function getRuntime(media: Movie | TVShow) {
 
 console.log(getRuntime({title:'Amadeus', duration: 145})); 
 console.log(getRuntime({title:'SpongeBob', episodeDuration: 30, numEpisodes:20 })); 
+
+// Instanceof Narrowing
+// esto me ayuda a saber si la cosa con la que estoy trabajando es instancia de algo mas 
+
+function printFullDate(date: string | Date) {
+    if(date instanceof Date) {
+        console.log(date.toUTCString());
+    } else {
+        console.log(new Date(date).toUTCString()); 
+    }
+}
+
+class User {
+    constructor(public username:string) {
+
+    }
+}
+
+class Company {
+    constructor(public name:string) {
+
+    }
+}
+
+function printName(entity: User | Company) {
+    if(entity instanceof User) {
+
+    } else {
+        
+    }
+}
