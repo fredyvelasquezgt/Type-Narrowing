@@ -24,3 +24,9 @@ const printLetters = (word?:string)=>{
         console.log('no es posible pasar');
     }
 }
+
+function someDemo(x:string | number, y: string | boolean) {
+    if(x === y) {
+        x.toUpperCase()
+    }
+}
