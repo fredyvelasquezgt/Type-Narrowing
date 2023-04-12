@@ -30,3 +30,26 @@ function someDemo(x:string | number, y: string | boolean) {
         x.toUpperCase()
     }
 }
+
+
+interface Movie {
+    title:string,
+    duration:number
+}
+
+interface TVShow {
+    title: string,
+    numEpisodes:number,
+    episodeDuration: number
+}
+
+function getRuntime(media: Movie | TVShow) {
+    if("numEpisodes" in media) {
+        //aqui ya sabe que estoy en TVSHow
+        return media.numEpisodes * media.episodeDuration;
+    }
+    return media.duration;
+}
+
+console.log(getRuntime({title:'Amadeus', duration: 145})); 
+console.log(getRuntime({title:'SpongeBob', episodeDuration: 30, numEpisodes:20 })); 
