@@ -5,7 +5,6 @@ function triple(value) {
     }
     return value * 3;
 }
-
 var el = document.getElementById("idk"); //aqui puede ser dos 
 if (el) { //aqui ya es puer HTMLElement
 }
@@ -68,12 +67,20 @@ function printName(entity) {
 function isCat(animal) {
     return animal.numLives !== undefined;
 }
-function makeNoise(animal) {
-    if (isCat(animal)) {
-        animal;
-        return 'meow';
-    }
-    else {
-        animal;
+function getFarmAnimalSound(animal) {
+    switch (animal.kind) {
+        case ("pig"):
+            return 'oink!';
+        case ("cow"):
+            return 'mooo!';
+        case ("rooster"):
+            return 'sound!!';
     }
 }
+var stevie = {
+    name: "stevie chicks",
+    weight: 2,
+    age: 1.5,
+    kind: "rooster"
+};
+console.log(getFarmAnimalSound(stevie));
