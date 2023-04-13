@@ -111,6 +111,7 @@ function makeNoise(animal: Cat | Dog): string {
     }
 }
 
+
 //Discriminated unions
 
 interface Rooster {
@@ -136,7 +137,14 @@ interface Pig {
 
 }
 
-type FarmAnimal = Pig | Rooster | Cow;
+interface Sheep {
+    name:string,
+    weight: number,
+    age:number,
+    kind: "sheep"
+}
+
+type FarmAnimal = Pig | Rooster | Cow | Sheep;
 
 function getFarmAnimalSound(animal:FarmAnimal) {
     switch(animal.kind) {
@@ -146,6 +154,14 @@ function getFarmAnimalSound(animal:FarmAnimal) {
             return 'mooo!'
         case("rooster"):
             return 'sound!!'
+        case("sheep"):
+            return 'baaa!';
+        default:
+            //we should never make it here, if we handled all cases correctly
+            // const shouldNeverGetHere: never = animal
+            // return shouldNeverGetHere
+            const _exhaustiveCheck: never = animal
+            return _exhaustiveCheck;
     }
 }
 
