@@ -111,3 +111,50 @@ function makeNoise(animal: Cat | Dog): string {
     }
 }
 
+//Discriminated unions
+
+interface Rooster {
+    name:string,
+    weight: number,
+    age:number,
+    kind: "rooster"
+}
+
+interface Cow {
+    name:string,
+    weight: number,
+    age:number,
+    kind: "cow"
+
+}
+
+interface Pig {
+    name:string,
+    weight: number,
+    age:number,
+    kind: "pig"
+
+}
+
+type FarmAnimal = Pig | Rooster | Cow;
+
+function getFarmAnimalSound(animal:FarmAnimal) {
+    switch(animal.kind) {
+        case("pig"):
+            return 'oink!'
+        case("cow"):
+            return 'mooo!'
+        case("rooster"):
+            return 'sound!!'
+    }
+}
+
+const stevie: Rooster = {
+    name: "stevie chicks",
+    weight: 2,
+    age: 1.5,
+    kind: "rooster"
+};
+
+console.log(getFarmAnimalSound(stevie)); 
+
